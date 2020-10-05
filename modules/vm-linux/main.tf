@@ -63,11 +63,15 @@ resource "azurerm_virtual_machine" "main" {
   }
   os_profile {
     computer_name  = var.vm_name
-    admin_username = "vikiadmin"
-    admin_password = "Password1234!"
+    admin_username = var.admin_username
+    #admin_password = "Password1234!"
   }
   os_profile_linux_config {
-    disable_password_authentication = false
+    disable_password_authentication = true
+    ssh_keys {
+      key_data = file(var.admin_key_filepath)
+      path     = "/home/${var.admin_username}/.ssh/authorized_keys"
+    }
   }
   tags = {
     environment = var.environment

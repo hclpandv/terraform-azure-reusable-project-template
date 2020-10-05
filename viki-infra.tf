@@ -32,9 +32,13 @@ module "viki-vm" {
   resource_group_name   = "RG_Manoj.Singh"
 
   vm_name     = "vikimgmt"
-  vnet_name   = "${var.customer_name}-vnet"
-  subnet_name = "dmz"
- 
+  admin_key_filepath = "./ssh-keys/id_rsa.pub"
+  vnet_name   = "${module.viki-network.vnet.name}"
+  subnet_name = "${module.viki-network.subnets[0].name}"
+  
+  depends_on =  [
+    module.viki-network
+  ]
   owner                 = var.owner
   environment           = var.environment
 }

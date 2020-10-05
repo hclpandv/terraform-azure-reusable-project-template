@@ -21,6 +21,15 @@ variable "vm_size" {
   default = "Standard_B1s"
 }
 
+variable "admin_username" {
+  description = "Admin Username on VM"
+  default     = "vikiadmin"
+}
+
+variable "admin_key_filepath" {
+  description = "Public key file path for Admin User"
+}
+
 variable "vnet_name" {
   description = "VNET name"
 }
