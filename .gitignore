@@ -2,4 +2,4 @@
 *.tfvars
 *.tfstate
 *.backup
-ssh-keys/**
+ssh-keys/*.pub
