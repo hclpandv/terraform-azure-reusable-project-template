@@ -1,0 +1,2 @@
+[targetservers]
+viki-vm ansible_host=10.10.10.34

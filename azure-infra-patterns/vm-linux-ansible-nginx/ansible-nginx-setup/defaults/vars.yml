@@ -1,0 +1,5 @@
+---
+# variables
+deploy_user               : vikiadmin
+html_root                 : /var/www/html
+ansible_python_interpreter: /usr/bin/python3

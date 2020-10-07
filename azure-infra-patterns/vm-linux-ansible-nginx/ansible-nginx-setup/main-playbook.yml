@@ -1,0 +1,16 @@
+---
+- name: Install ngnix on target servers
+  hosts: [targetservers]
+  become: true
+  become_user: root
+  remote_user: "{{ deploy_user }}"
+  #gather_facts: false
+  vars_files:
+    - defaults/vars.yml
+  tasks:
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=latest
+    - name: start nginx
+      service:
+          name: nginx
+          state: started
