@@ -30,6 +30,10 @@ variable "admin_key_filepath" {
   description = "Public key file path for Admin User"
 }
 
+variable "vnet_rg_name" {
+  description = "VNET RG name"
+}
+
 variable "vnet_name" {
   description = "VNET name"
 }

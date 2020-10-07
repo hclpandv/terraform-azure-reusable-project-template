@@ -9,13 +9,13 @@
 
 data "azurerm_virtual_network" "main" {
   name                 = var.vnet_name
-  resource_group_name  = var.resource_group_name
+  resource_group_name  = var.vnet_rg_name
 }
 
 data "azurerm_subnet" "main" {
   name                 = var.subnet_name
   virtual_network_name = var.vnet_name
-  resource_group_name  = var.resource_group_name
+  resource_group_name  = var.vnet_rg_name
 }
 
 #---------------------------------------------------------------------
