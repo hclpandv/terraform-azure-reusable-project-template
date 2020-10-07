@@ -49,16 +49,14 @@ resource "local_file" "ansible-inventory" {
 #-----------------------------------------------
 # Execute ansible playbook
 #-----------------------------------------------
-/*
-resource "local_file" "ansible-inventory" {
-    content = templatefile("${module.path}/tf-templates/ansible-inventory.tmpl",
-    {
-        private-ip = module.viki-vm.network_interface_private_ip
-    }
-    )
-    filename = "${module.path}/ansible-nginx-setup/ansible-inventory"
-    depends_on =  [
-      local_file.ansible-inventory
-    ]
+resource "null_resource" "run-ansible-playbook" {
+  
+  provisioner "local-exec" {
+    # Call Script here
+    command = "echo run-ansible-playbook"
+  }
+
+  depends_on =  [
+    null_resource.install-ansible
+  ]
 }
-*/
