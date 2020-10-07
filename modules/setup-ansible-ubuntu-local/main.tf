@@ -2,7 +2,7 @@ resource "null_resource" "install-ansible" {
   
   provisioner "local-exec" {
     # Call Script here
-    command = "./scripts/install-ansible.sh"
+    command = "${path.module}/scripts/install-ansible.sh"
   }
 }
 
