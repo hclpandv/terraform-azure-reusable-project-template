@@ -57,6 +57,6 @@ resource "null_resource" "run-ansible-playbook" {
   }
 
   depends_on =  [
-    null_resource.ansible-inventory
+    local_file.ansible-inventory
   ]
 }
