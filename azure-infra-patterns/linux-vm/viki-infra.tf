@@ -6,7 +6,7 @@
 # Network
 #-----------------------------------------------------------
 module "viki-network" {
-  source                = "./modules/network"
+  source                = "../../modules/network"
   location              = "westeurope"
   resource_group_name   = "RG_Manoj.Singh"
 
@@ -27,14 +27,15 @@ module "viki-network" {
 # VM
 #-----------------------------------------------------------
 module "viki-vm" {
-  source                = "./modules/vm-linux"
+  source                = "../../modules/vm-linux"
   location              = "westeurope"
   resource_group_name   = "RG_Manoj.Singh"
 
-  vm_name     = "vikimgmt"
-  admin_key_filepath = "./ssh-keys/id_rsa.pub"
-  vnet_name   = "${module.viki-network.vnet.name}"
-  subnet_name = "${module.viki-network.subnets[0].name}"
+  vm_name               = "vikimgmt"
+  admin_key_filepath    = "../../ssh-keys/id_rsa.pub"
+  vnet_name             = "${module.viki-network.vnet.name}"
+  vnet_rg_name          = "RG_Manoj.Singh"
+  subnet_name           = "${module.viki-network.subnets[0].name}"
   
   depends_on =  [
     module.viki-network
