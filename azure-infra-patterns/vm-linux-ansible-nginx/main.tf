@@ -27,7 +27,7 @@ module "viki-vm" {
 }
 
 output "viki-mgmt02-pvt-ip" {
-    value                 = "${module.viki-vm.network_interface_private_ip}"
+    value                 = module.viki-vm.network_interface_private_ip
 }
 
 #-----------------------------------------------
@@ -54,6 +54,10 @@ resource "null_resource" "run-ansible-playbook" {
   provisioner "local-exec" {
     command     = "ansible-playbook main-playbook.yml"
     working_dir = "./ansible-nginx-setup"
+  }
+
+  triggers = {
+    always_run = timestamp()
   }
 
   depends_on =  [

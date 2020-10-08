@@ -37,7 +37,7 @@ resource "azurerm_network_interface" "main" {
 # VM Resource
 #---------------------------------------------------------------------
 resource "azurerm_virtual_machine" "main" {
-  name                  = lower("${var.vm_name}")
+  name                  = lower(var.vm_name)
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.main.id]
