@@ -52,8 +52,8 @@ resource "local_file" "ansible-inventory" {
 resource "null_resource" "run-ansible-playbook" {
   
   provisioner "local-exec" {
-    # Call Script here
-    command = "echo run-ansible-playbook"
+    command     = "ansible-playbook main-playbook.yml"
+    working_dir = "./ansible-nginx-setup"
   }
 
   depends_on =  [
