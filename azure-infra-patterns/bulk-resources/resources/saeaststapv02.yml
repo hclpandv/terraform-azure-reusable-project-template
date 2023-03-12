@@ -1,0 +1,7 @@
+---
+location: "eastasia"
+account_tier: "Standard"
+resource_group_name: "rg-topgun-infrastructure-weu-01"
+account_replication_type: "LRS"
+tags:
+  environment: "dev"
